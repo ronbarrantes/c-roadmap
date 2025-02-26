@@ -7,7 +7,7 @@ These are a set of projects for learning C programming.
 ### Beginner Projects (Focus on Syntax & Basics)
 
 - [x] Hello, World! – The classic first program.
-- [ ] Simple Calculator – Perform basic arithmetic operations.
+- [x] Simple Calculator – Perform basic arithmetic operations.
 - [ ] Number Guessing Game – User guesses a randomly generated number.
 - [ ] Temperature Converter – Convert between Celsius, Fahrenheit, and Kelvin.
 - [ ] Factorial & Fibonacci Generator – Implement using loops and recursion.
