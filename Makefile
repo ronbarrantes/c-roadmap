@@ -2,13 +2,13 @@ BUILD_DIR = build
 CC = gcc
 CFLAGS = -Wall -Wextra -O2
 
-# Default target
-all: 
+# Default target (empty to avoid errors)
+all:
 
 # Extract filename without extension
 TARGET = $(BUILD_DIR)/$(basename $(MAKECMDGOALS))
 
-# Pattern rule to compile C files
+# Rule to handle dynamic targets
 $(BUILD_DIR)/%: %.c | $(BUILD_DIR)
 	$(CC) $(CFLAGS) $< -o $@
 
@@ -20,8 +20,10 @@ $(BUILD_DIR):
 clean:
 	rm -rf $(BUILD_DIR)
 
-hello: 
-	@echo "hello world"
+# Special handling to redirect "make file.c" to "make build/file"
+%:
+	make $(BUILD_DIR)/$(basename $@)
 
 # Prevent make from complaining about unknown targets
+
 .PHONY: all clean
