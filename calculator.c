@@ -36,7 +36,7 @@ int get_input_with_prompt(const char *prompt) {
 }
 
 void perform_calculation(char sign, int first_number, int second_number) {
-  printf("The result of  %d+%d is: ", first_number, second_number);
+  printf("The result of %d%c%d is: ", first_number, sign, second_number);
   switch (sign) {
 
   case '+':
