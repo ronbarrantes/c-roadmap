@@ -8,7 +8,7 @@ These are a set of projects for learning C programming.
 
 - [x] Hello, World! – The classic first program.
 - [x] Simple Calculator – Perform basic arithmetic operations.
-- [ ] Number Guessing Game – User guesses a randomly generated number.
+- [x] Number Guessing Game – User guesses a randomly generated number.
 - [ ] Temperature Converter – Convert between Celsius, Fahrenheit, and Kelvin.
 - [ ] Factorial & Fibonacci Generator – Implement using loops and recursion.
 - [ ] Reverse a String – Practice working with arrays and pointers.
