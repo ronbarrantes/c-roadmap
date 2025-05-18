@@ -8,6 +8,19 @@
 #include <stdlib.h>
 #include <string.h>
 
+double c_to_k(double c) {
+  return c + 273.15;
+}
+double c_to_f(double c) {
+  return c * (9.0 / 5) + 32;
+}
+double k_to_c(double k) {
+  return 273.15 - k;
+}
+double f_to_c(double f) {
+  return (f - 32) * (5.0 / 9);
+}
+
 /**
  * Extracts a substring from the given string.
  *
@@ -17,6 +30,7 @@
  * @return A dynamically allocated string containing the substring.
  *         The caller is responsible for freeing the memory using free().
  */
+
 char *alloc_substring(char *str, int initial, int end) {
   int length = end - initial;
 
