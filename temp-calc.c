@@ -8,16 +8,36 @@
 #include <stdlib.h>
 #include <string.h>
 
-double c_to_k(double c) {
+/**
+ * Celsius to Kelvin
+ * @param c The input double.
+ */
+double ctok(double c) {
   return c + 273.15;
 }
-double c_to_f(double c) {
+
+/**
+ * Celsius to Farenheight
+ * @param c The input double.
+ */
+double ctof(double c) {
   return c * (9.0 / 5) + 32;
 }
-double k_to_c(double k) {
+
+/**
+ * Kelvin to Celsius
+ * @param k The input double.
+ */
+
+double ktoc(double k) {
   return 273.15 - k;
 }
-double f_to_c(double f) {
+
+/**
+ * Farenheight to Celsius
+ * @param f The input double.
+ */
+double ftoc(double f) {
   return (f - 32) * (5.0 / 9);
 }
 
@@ -47,17 +67,15 @@ char *alloc_substring(char *str, int initial, int end) {
 }
 
 int main(int argc, char *argv[]) {
-  printf("the argc is '%d'\n", argc);
-
   if (argc != 2) {
     printf("Please pass the temperature with the C|F|K");
-    return 0;
+    return 1;
   }
 
   char *temperature = argv[1];
   int length = strlen(temperature);
 
-  char end_char = temperature[length - 1];
+  char degrees = temperature[length - 1];
   char *temp_subs = alloc_substring(temperature, 0, length - 1);
 
   if (temp_subs == NULL) {
@@ -76,16 +94,41 @@ int main(int argc, char *argv[]) {
 
   free(temp_subs);
 
-  // ensure that the end_char is either C or F or K
-  if (tolower(end_char) != 'c' && tolower(end_char) != 'f' && tolower(end_char) != 'k') {
-    printf("Invalid param. The last character should be C|F|K, you inputed %c\n", end_char);
+  // ensure that the degrees is either C or F or K
+  if (tolower(degrees) != 'c' && tolower(degrees) != 'f' && tolower(degrees) != 'k') {
+    printf("Invalid param. The last character should be C|F|K, you inputed %c\n", degrees);
     return 1;
   }
 
-  printf("int_temp is %f\n", float_temp);
-  printf("end_char is %c\n", end_char);
-  // check if the first char is - or number
-  // contains the C,F,K
+  double c;
+  double f;
+  double k;
+
+  switch (degrees) {
+  case 'c':
+    c = float_temp;
+    f = ctof(c);
+    k = ctok(c);
+    break;
+  case 'f':
+    f = float_temp;
+    c = ftoc(f);
+    k = ctok(c);
+    break;
+  case 'k':
+    k = float_temp;
+    c = ktoc(k);
+    f = ctof(c);
+
+    break;
+  default:
+    printf("ERROR: there was a problem calculating the temperatures\n");
+    return 1;
+  }
+
+  printf("%.2fC\n", c);
+  printf("%.2fF\n", f);
+  printf("%.2fK\n", k);
 
   return 0;
 }
