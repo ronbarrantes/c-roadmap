@@ -2,8 +2,8 @@ BUILD_DIR = build
 CC = gcc
 CFLAGS = -Wall -Wextra -O2
 
-# Default target (empty to avoid errors)
 all:
+	@echo "Usage: make file_name"
 
 # Extract filename without extension
 TARGET = $(BUILD_DIR)/$(basename $(MAKECMDGOALS))
@@ -20,7 +20,7 @@ $(BUILD_DIR):
 clean:
 	rm -rf $(BUILD_DIR)
 
-# Special handling to redirect "make file.c" to "make build/file"
+# Special handling to redirect "make file" to "make build/file"
 %:
 	make $(BUILD_DIR)/$(basename $@)
 
