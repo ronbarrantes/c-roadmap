@@ -4,7 +4,6 @@
 // the 3 different temperatures
 
 #include <ctype.h>
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -44,7 +43,6 @@ int main(int argc, char *argv[]) {
   char *temperature = argv[1];
   int length = strlen(temperature);
 
-  bool is_negative = false;
   char end_char = temperature[length - 1];
   char *temp_subs = alloc_substring(temperature, 0, length - 1);
 
