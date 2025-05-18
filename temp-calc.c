@@ -1,8 +1,3 @@
-// temperature calculator
-// I want to add a temperature with a sign
-// like C or F or K and it will display all
-// the 3 different temperatures
-
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -75,7 +70,7 @@ int main(int argc, char *argv[]) {
   char *temperature = argv[1];
   int length = strlen(temperature);
 
-  char degrees = temperature[length - 1];
+  char degrees = tolower(temperature[length - 1]);
   char *temp_subs = alloc_substring(temperature, 0, length - 1);
 
   if (temp_subs == NULL) {
@@ -95,7 +90,7 @@ int main(int argc, char *argv[]) {
   free(temp_subs);
 
   // ensure that the degrees is either C or F or K
-  if (tolower(degrees) != 'c' && tolower(degrees) != 'f' && tolower(degrees) != 'k') {
+  if (degrees != 'c' && degrees != 'f' && degrees != 'k') {
     printf("Invalid param. The last character should be C|F|K, you inputed %c\n", degrees);
     return 1;
   }
