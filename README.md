@@ -9,7 +9,7 @@ These are a set of projects for learning C programming.
 - [x] Hello, World! – The classic first program.
 - [x] Simple Calculator – Perform basic arithmetic operations.
 - [x] Number Guessing Game – User guesses a randomly generated number.
-- [ ] Temperature Converter – Convert between Celsius, Fahrenheit, and Kelvin.
+- [x] Temperature Converter – Convert between Celsius, Fahrenheit, and Kelvin.
 - [ ] Factorial & Fibonacci Generator – Implement using loops and recursion.
 - [ ] Reverse a String – Practice working with arrays and pointers.
 - [ ] Simple To-Do List (CLI) – Store and retrieve tasks using arrays.
