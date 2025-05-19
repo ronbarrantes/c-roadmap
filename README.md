@@ -10,7 +10,7 @@ These are a set of projects for learning C programming.
 - [x] Simple Calculator – Perform basic arithmetic operations.
 - [x] Number Guessing Game – User guesses a randomly generated number.
 - [x] Temperature Converter – Convert between Celsius, Fahrenheit, and Kelvin.
-- [ ] Factorial & Fibonacci Generator – Implement using loops and recursion.
+- [x] Factorial & Fibonacci Generator – Implement using loops and recursion.
 - [ ] Reverse a String – Practice working with arrays and pointers.
 - [ ] Simple To-Do List (CLI) – Store and retrieve tasks using arrays.
 - [ ] Basic File I/O – Read and write text files.
