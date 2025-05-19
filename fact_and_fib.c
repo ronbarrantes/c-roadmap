@@ -38,15 +38,17 @@ unsigned long factorial(int n) {
   return res;
 }
 
-unsigned long fibonacci(int n) {
-  // recursion
+unsigned long fibonacci(int n, int arr[]) {
   if (n <= 0)
     return 0;
   if (n == 1)
     return 1;
 
-  n = fibonacci(n - 2) + fibonacci(n - 1);
-  return n;
+  if (arr[n] != 0)
+    return arr[n];
+
+  arr[n] = fibonacci(n - 2, arr) + fibonacci(n - 1, arr);
+  return arr[n];
 }
 
 int main() {
@@ -59,7 +61,13 @@ int main() {
   }
 
   else {
-    long result = fibonacci(number);
+    // init elements to zero
+    int arr[number];
+    for (int i = 0; i < number; i++) {
+      arr[i] = 0;
+    }
+
+    long result = fibonacci(number, arr);
     printf("The %d fibonacci is %ld\n", number, result);
   }
 
