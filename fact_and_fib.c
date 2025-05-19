@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 
-char *fac = "fac";
-char *fib = "fib";
+const char *fac = "fac";
+const char *fib = "fib";
 
 int get_the_number(char *prompt) {
   int number;
 
   printf("%s: ", prompt);
-  while (scanf(" %d", &number) != 1) {
-    printf("Try again with a number: ");
-    while (getchar() != '\n') {
-    }
+  while (scanf(" %d", &number) != 1 || number <= 0) {
+    printf("Try again with a positive number: ");
+    while (getchar() != '\n')
+      ;
   }
 
   return number;
@@ -23,23 +23,22 @@ char *get_fac_or_fib(char *prompt) {
   printf("%s: ", prompt);
   while (scanf(" %3s", fac_fib) != 1 || (strcmp(fac_fib, fac) != 0 && strcmp(fac_fib, fib) != 0)) {
     printf("Write %s or %s: ", fac, fib);
-    while (getchar() != '\n') {
-    }
+    while ((getchar()) != '\n')
+      ;
   }
 
   return fac_fib;
 }
 
-long factorial(int n) {
+unsigned long factorial(int n) {
   long res = 1;
   for (int i = 1; i <= n; i++) {
     res *= i;
-    printf("res -->> %ld\n", res);
   }
   return res;
 }
 
-long fibonacci(int n) {
+unsigned long fibonacci(int n) {
   // recursion
   if (n <= 0)
     return 0;
@@ -52,7 +51,7 @@ long fibonacci(int n) {
 
 int main() {
   char *operation = get_fac_or_fib("Input fac or fib");
-  int number = get_the_number("Input a number");
+  int number = get_the_number("Input a positive number");
 
   if (strcmp(operation, fac) == 0) {
     long result = factorial(number);
