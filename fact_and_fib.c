@@ -30,15 +30,15 @@ char *get_fac_or_fib(char *prompt) {
   return fac_fib;
 }
 
-unsigned long factorial(int n) {
-  long res = 1;
+unsigned long long factorial(int n) {
+  unsigned long long res = 1;
   for (int i = 1; i <= n; i++) {
     res *= i;
   }
   return res;
 }
 
-unsigned long fibonacci(int n, int arr[]) {
+unsigned long long fibonacci(int n, unsigned long long arr[]) {
   if (n <= 0)
     return 0;
   if (n == 1)
@@ -56,19 +56,17 @@ int main() {
   int number = get_the_number("Input a positive number");
 
   if (strcmp(operation, fac) == 0) {
-    long result = factorial(number);
-    printf("The factorial of %d is %ld\n", number, result);
+    unsigned long long result = factorial(number);
+    printf("The factorial of %d is %llu\n", number, result);
   }
 
   else {
     // init elements to zero
-    int arr[number];
-    for (int i = 0; i < number; i++) {
-      arr[i] = 0;
-    }
 
-    long result = fibonacci(number, arr);
-    printf("The %d fibonacci is %ld\n", number, result);
+    unsigned long long arr[number + 1];
+    memset(arr, 0, sizeof(arr));
+    unsigned long long result = fibonacci(number, arr);
+    printf("The %d fibonacci is %llu\n", number, result);
   }
 
   return 0;
