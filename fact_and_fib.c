@@ -1,11 +1,3 @@
-// factorials and fibonacci in loops and recursion
-// what do I wanna do here
-// maybe I want to run the function and it will give me choices
-// input fac or fib
-// input the number
-//
-// Maybe I can solve factorial with loop
-// and I'll solve fibonacci with recursion
 #include <stdio.h>
 #include <string.h>
 
@@ -38,14 +30,16 @@ char *get_fac_or_fib(char *prompt) {
   return fac_fib;
 }
 
-int factorial(int n) {
+long factorial(int n) {
+  long res = 1;
   for (int i = 1; i <= n; i++) {
-    n *= i;
+    res *= i;
+    printf("res -->> %ld\n", res);
   }
-  return n;
+  return res;
 }
 
-int fibonacci(int n) {
+long fibonacci(int n) {
   // recursion
   if (n <= 0)
     return 0;
@@ -61,13 +55,13 @@ int main() {
   int number = get_the_number("Input a number");
 
   if (strcmp(operation, fac) == 0) {
-    int result = factorial(number);
-    printf("The factorial of %d is %d\n", number, result);
+    long result = factorial(number);
+    printf("The factorial of %d is %ld\n", number, result);
   }
 
   else {
-    int result = fibonacci(number);
-    printf("The %d fibonacci is %d\n", number, result);
+    long result = fibonacci(number);
+    printf("The %d fibonacci is %ld\n", number, result);
   }
 
   return 0;
